@@ -1,0 +1,75 @@
+<div class="jumbotron">
+    <h1>Sample Application</h1>
+    <p></p>
+</div>
+<div class="centeredDiv">
+    <form ng-submit="query()" class="form">
+    <span>Start Date: <input type="text" id="departing" data-ng-model="sdate"></span>
+  &nbsp;&nbsp;
+    <span>End Date: <input type="text" id="returning" data-ng-model="edate"></span>
+        &nbsp;&nbsp; &nbsp;&nbsp;
+    <span> <button type="submit" class="btn btn-success">Query</button></span>
+        </form>
+</div>
+<div class="loader centeredDiv" align="center" data-ng-if="loading"></div>
+
+<table data-ng-if="!loading && userDetail.ResponseData" class="table table-striped">
+        <thead>
+        <tr>
+            <th st-sort="firstName">IMEI No</th>
+            <th st-sort="lastName">Param 1</th>
+            <th st-sort="lastName">Param 2</th>
+            <th st-sort="lastName">Param 3</th>
+            <th st-sort="lastName">Param 4</th>
+            <th st-sort="lastName">Param 5</th>
+            <th st-sort="lastName">Param 6</th>
+            <th st-sort="lastName">Param 7</th>
+            <th st-sort="lastName">Param 8</th>
+            <th st-sort="lastName">Param 9</th>
+            <th st-sort="lastName">Param 10</th>
+            <th st-sort="lastName">Param 11</th>
+            <th st-sort="lastName">Param 12</th>
+            <th st-sort="lastName">Param 13</th>
+            <th st-sort="lastName">Param 14</th>
+            <th st-sort="lastName">Param 15</th>
+            <th st-sort="lastName">Param 16</th>
+        </tr>
+        <tr>
+         <!--   <th colspan="5"><input st-search="" class="form-control" placeholder="global search ..." type="text"/></th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in userDetail.ResponseData">
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+            <td>{{row[6]}}</td>
+            <td>{{row[7]}}</td>
+            <td>{{row[8]}}</td>
+            <td>{{row[9]}}</td>
+            <td>{{row[10]}}</td>
+            <td>{{row[11]}}</td>
+            <td>{{row[12]}}</td>
+            <td>{{row[13]}}</td>
+            <td>{{row[14]}}</td>
+            <td>{{row[15]}}</td>
+            <td>{{row[16]}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#departing").datepicker();
+        $("#returning").datepicker();
+        $("button").click(function() {
+            var selected = $("#dropdown option:selected").text();
+            var departing = $("#departing").val();
+            var returning = $("#returning").val();
+        });
+    });
+</script>
